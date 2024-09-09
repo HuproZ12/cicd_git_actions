@@ -1,0 +1,49 @@
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    height: 100vh;
+    background-color: black;
+    color: white;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid white;
+    text-align: center;
+}
+
+img:hover{
+    cursor: pointer;
+}
+
+button {
+    width: 100%;
+}
+
+.borderless-sized {
+    width: 1em;
+    border: 0px;
+}
+
+.borderless {
+    border: 0px;
+}
+
+.button {
+    background-color: darkgray;
+    color: red;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+a:link {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+    color: red;
+}

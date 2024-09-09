@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
-@Controller
+//@Controller
 public class ViewController {
 
     @Autowired
@@ -18,13 +18,13 @@ public class ViewController {
 
     @GetMapping("/")
     public String home() {
-        return "index";
+        return "Exercice_TodoList/index";
     }
 
     @GetMapping("/todo/{index}")
     public String todo(@PathVariable int index, Model model) {
         model.addAttribute("todo", todosService.getOneTodo(index-1));
-        return "todo";
+        return "Exercice_TodoList/todo";
     }
 
     @GetMapping("/todos")

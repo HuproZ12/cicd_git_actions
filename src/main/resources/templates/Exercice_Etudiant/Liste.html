@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/style.css" rel="stylesheet">
+</head>
+<body>
+
+<table>
+    <tr><th>Nom</th><th>Prénom</th><th>Details</th></tr>
+    <tr th:each="etudiant : ${etudiants}"><td th:text="${etudiant.getNom()}"/><td th:text="${etudiant.getPrenom()}"/><td><a th:href="@{/details(id=${etudiant.id})}">Ici</a></td></tr>
+</table>
+
+<a th:href="@{/}" class="button">Retour</a>
+
+</body>
+</html>

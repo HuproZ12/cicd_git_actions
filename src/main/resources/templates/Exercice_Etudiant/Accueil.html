@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/style.css" rel="stylesheet">
+</head>
+<body>
+
+<h1>Ceci est une page d'accueil</h1>
+
+<a th:href="@{/liste-etudiants}" class="button">Liste des étudiants</a>
+
+<form action="/recherche" method="get">
+    <input type="text" name="nom" placeholder="Rechercher par nom">
+    <button type="submit">Valider</button>
+</form>
+
+</body>
+</html>
