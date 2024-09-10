@@ -11,29 +11,25 @@ public class EtudiantService {
 
     public EtudiantService() {
         etudiants.add(new Etudiant(7, "DUTILLEEUX", "Hugo", 25, "hugodtlx@outlook.com"));
+        etudiants.add(new Etudiant(10, "DUTOIS", "Jean", 75, "jean.dutois@hotmail.fr"));
         etudiants.add(new Etudiant(12, "BUTCHER", "William", 50, "william.butcher@theboys.us"));
-    }
-
-    public Etudiant getById(int id) {
-        for (Etudiant etudiant : etudiants) {
-            if (etudiant.getId() == id) {
-                return etudiant;
-            }
-        }
-        return null;
     }
 
     public List<Etudiant> getAllEtudiants() {
         return etudiants;
     }
 
-    public List<Etudiant> recherche(String nom) {
+    public List<Etudiant> recherche(String recherche) {
         List<Etudiant> matchs = new ArrayList<>();
         for (Etudiant etudiant : etudiants) {
-            if (etudiant.getNom().toLowerCase().contains(nom.toLowerCase())) {
+            if (etudiant.getNom().toLowerCase().contains(recherche.toLowerCase())) {
                 matchs.add(etudiant);
             }
         }
         return matchs;
+    }
+
+    public void save(Etudiant etudiant) {
+        etudiants.add(etudiant);
     }
 }

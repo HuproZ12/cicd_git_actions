@@ -12,7 +12,10 @@
     <tr><td th:text="${etudiant.getId()}"/><td th:text="${etudiant.getNom()}"/><td th:text="${etudiant.getPrenom()}"/><td th:text="${etudiant.getAge()}"/><td th:text="${etudiant.getMail()}"/></tr>
 </table>
 
-<a th:href="@{/liste-etudiants}" class="button">Retour</a>
+<form action="/liste-etudiants" method="post">
+    <input type="hidden" name="recherche" th:value="${recherche}">
+    <button type="submit" class="button">Retour</button>
+</form>
 
 <a th:href="@{/}" class="button">Accueil</a>
 

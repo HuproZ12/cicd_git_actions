@@ -11,8 +11,10 @@
 
 <a th:href="@{/liste-etudiants}" class="button">Liste des étudiants</a>
 
-<form action="/recherche" method="get">
-    <input type="text" name="nom" placeholder="Rechercher par nom">
+<a th:href="@{/inscription}" class="button">Inscription</a>
+
+<form action="/liste-etudiants" method="post">
+    <input type="text" name="recherche" placeholder="Rechercher par nom">
     <button type="submit">Valider</button>
 </form>
 

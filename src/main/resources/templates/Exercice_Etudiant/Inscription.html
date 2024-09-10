@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/style.css" rel="stylesheet">
+</head>
+<body>
+
+<form action="/inscription" method="post">
+    <table>
+        <tr><td class="borderless"><label for="id">id</label></td><td class="borderless"><input type="text" id="id" name="id"></td></tr>
+        <tr><td class="borderless"><label for="nom">Nom</label></td><td class="borderless"><input type="text" id="nom" name="nom"></td></tr>
+        <tr><td class="borderless"><label for="prenom">Prenom</label></td><td class="borderless"><input type="text" id="prenom" name="prenom"></td></tr>
+        <tr><td class="borderless"><label for="age">Age</label></td><td class="borderless"><input type="text" id="age" name="age"></td></tr>
+        <tr><td class="borderless"><label for="mail">Mail</label></td><td class="borderless"><input type="text" id="mail" name="mail"></td></tr>
+        <tr><td class="borderless" colspan="2"><button type="submit">Inscrire</button></td></tr>
+    </table>
+</form>
+
+<a th:href="@{/}" class="button">Retour</a>
+
+</body>
+</html>
