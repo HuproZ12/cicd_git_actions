@@ -55,4 +55,23 @@ public class ViewController {
         etudiantService.save(etudiant);
         return "redirect:/liste-etudiants";
     }
+
+    @PostMapping("/suppression")
+    public String suppression(@ModelAttribute Etudiant etudiant) {
+        etudiantService.delete(etudiant);
+        return "redirect:/liste-etudiants";
+    }
+
+    @PostMapping("/modification")
+    public String modification(@ModelAttribute Etudiant etudiant, Model model) {
+        model.addAttribute("etudiant", etudiant);
+        return "Exercice_Etudiant/Modification";
+    }
+
+    @PostMapping("/modification-apply")
+    public String modificationApply(@ModelAttribute Etudiant etudiant, Model model) {
+        etudiantService.update(etudiant);
+        model.addAttribute("etudiant", etudiant);
+        return "Exercice_Etudiant/Details";
+    }
 }

@@ -24,8 +24,12 @@ button {
     width: 100%;
 }
 
+input{
+    text-align: center;
+}
+
 .borderless-sized {
-    width: 1em;
+    width: 2em;
     border: 0px;
 }
 

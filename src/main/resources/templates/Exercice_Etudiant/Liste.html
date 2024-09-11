@@ -3,21 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="/style.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
 
 <p th:if="${etudiants.isEmpty()}">Aucun résultat</p>
 <table th:unless="${etudiants.isEmpty()}">
-    <tr><th>Nom</th><th>Prenom</th><th>Details</th></tr>
-    <tr th:each="etudiant : ${etudiants}"><td th:text="${etudiant.getNom()}"/><td th:text="${etudiant.getPrenom()}"/>
-        <td>
-            <form action="/details" method="post">
+    <tr><th class="borderless-sized"/><th>Nom</th><th>Prenom</th><th>Details</th></tr>
+    <tr th:each="etudiant : ${etudiants}">
+        <td class="borderless-sized">
+            <form action="/suppression" method="post">
+                <th:block th:fragment="test">
                 <input type="hidden" name="id" th:value="${etudiant.id}">
                 <input type="hidden" name="nom" th:value="${etudiant.nom}">
                 <input type="hidden" name="prenom" th:value="${etudiant.prenom}">
                 <input type="hidden" name="age" th:value="${etudiant.age}">
                 <input type="hidden" name="mail" th:value="${etudiant.mail}">
+                </th:block>
+                <input type="image" src="/images/redcross.png" width="100%">
+            </form>
+        </td>
+        <td th:text="${etudiant.getNom()}"/><td th:text="${etudiant.getPrenom()}"/>
+        <td>
+            <form action="/details" method="post">
+                <span th:replace="~{Exercice_Etudiant/Liste :: test}"></span>
                 <input th:if="${isRecherche}" type="hidden" name="recherche" th:value="${recherche}">
                 <button type="submit">ici</button>
             </form>

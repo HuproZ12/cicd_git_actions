@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<form action="/modification-apply" method="post">
+    <input type="hidden" id="id" name="id" th:value="${etudiant.id}">
+    <table>
+        <tr><td class="borderless"><label for="nom">Nom</label></td><td class="borderless"><input type="text" id="nom" name="nom" th:value="${etudiant.nom}"></td></tr>
+        <tr><td class="borderless"><label for="prenom">Prenom</label></td><td class="borderless"><input type="text" id="prenom" name="prenom" th:value="${etudiant.prenom}"></td></tr>
+        <tr><td class="borderless"><label for="age">Age</label></td><td class="borderless"><input type="text" id="age" name="age" th:value="${etudiant.age}"></td></tr>
+        <tr><td class="borderless"><label for="mail">Mail</label></td><td class="borderless"><input type="text" id="mail" name="mail" th:value="${etudiant.mail}"></td></tr>
+        <tr><td class="borderless" colspan="2"><button type="submit">Modifier</button></td></tr>
+    </table>
+</form>
+
+<form action="/details" method="post">
+    <span th:replace="~{Exercice_Etudiant/Liste :: test}"></span>
+    <button type="submit" class="button">Retour</button>
+</form>
+
+</body>
+</html>

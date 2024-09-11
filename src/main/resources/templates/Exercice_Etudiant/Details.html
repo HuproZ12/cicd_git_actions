@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="/style.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
 
 <table>
-    <tr><th>id</th><th>Nom</th><th>Prenom</th><th>Age</th><th>Mail</th></tr>
-    <tr><td th:text="${etudiant.getId()}"/><td th:text="${etudiant.getNom()}"/><td th:text="${etudiant.getPrenom()}"/><td th:text="${etudiant.getAge()}"/><td th:text="${etudiant.getMail()}"/></tr>
+    <tr><th class="borderless-sized"/><th>id</th><th>Nom</th><th>Prenom</th><th>Age</th><th>Mail</th></tr>
+    <tr>
+        <td class="borderless-sized">
+            <form action="/modification" method="post">
+                <span th:replace="~{Exercice_Etudiant/Liste :: test}"></span>
+                <input type="image" src="/images/edit.png" width="100%">
+            </form>
+        </td>
+        <td th:text="${etudiant.getId()}"/><td th:text="${etudiant.getNom()}"/><td th:text="${etudiant.getPrenom()}"/><td th:text="${etudiant.getAge()}"/><td th:text="${etudiant.getMail()}"/>
+    </tr>
 </table>
 
 <form action="/liste-etudiants" method="post">
