@@ -7,12 +7,13 @@
 </head>
 <body>
 
-<form action="/inscription" method="post">
+<form action="/inscription" th:object="${etudiant}" method="post" enctype="multipart/form-data">
     <table>
-        <tr><td class="borderless"><label for="nom">Nom</label></td><td class="borderless"><input type="text" id="nom" name="nom"></td></tr>
+        <tr><td class="borderless"><label for="nom">Nom</label></td><td class="borderless"><input type="text" id="nom" name="nom" th:field="*{nom}"></td><td th:if="${#fields.hasErrors('nom')}" class="borderless"><span th:errors="*{nom}"/></td></tr>
         <tr><td class="borderless"><label for="prenom">Prenom</label></td><td class="borderless"><input type="text" id="prenom" name="prenom"></td></tr>
         <tr><td class="borderless"><label for="age">Age</label></td><td class="borderless"><input type="text" id="age" name="age"></td></tr>
         <tr><td class="borderless"><label for="mail">Mail</label></td><td class="borderless"><input type="text" id="mail" name="mail"></td></tr>
+        <tr><td class="borderless"><label for="image">Photo</label></td><td class="borderless"><input type="file" id="image" name="image"></td></tr>
         <tr><td class="borderless" colspan="2"><button type="submit">Inscrire</button></td></tr>
     </table>
 </form>

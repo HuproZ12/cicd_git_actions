@@ -16,7 +16,7 @@
                 <input type="image" src="/images/edit.png" width="100%">
             </form>
         </td>
-        <td th:text="${etudiant.getId()}"/><td th:text="${etudiant.getNom()}"/><td th:text="${etudiant.getPrenom()}"/><td th:text="${etudiant.getAge()}"/><td th:text="${etudiant.getMail()}"/>
+        <td th:text="${etudiant.getId()}"/><td th:text="${etudiant.getNom()}"/><td th:text="${etudiant.getPrenom()}"/><td th:text="${etudiant.getAge()}"/><td th:text="${etudiant.getMail()}"/><td class="borderless-sized"><img th:src="@{/images/{id}.png(id=${etudiant.id})}" width="100%"/></td>
     </tr>
 </table>
 

@@ -1,4 +1,5 @@
 body {
+    background: url('/images/matrix.gif') no-repeat center center fixed;
     display: grid;
     grid-template-columns: 1fr;
     place-items: center;
@@ -29,7 +30,7 @@ input{
 }
 
 .borderless-sized {
-    width: 2em;
+    width: 5em;
     border: 0px;
 }
 
