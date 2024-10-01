@@ -1,0 +1,26 @@
+name: rep aux issues
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  rep:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Respond to issue
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const issueComment = `C'est bien petite sasa report c'est bien`;
+
+          github.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: issueComment
+          });
