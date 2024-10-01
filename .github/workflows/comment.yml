@@ -1,11 +1,11 @@
-name: rep aux issues
+name: Auto-respond to new issues
 
 on:
   issues:
     types: [opened]
 
 jobs:
-  rep:
+  respond:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,11 +16,19 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          const issueComment = `C'est bien petite sasa report c'est bien`;
+          const issueComment = `
+          Merci d'avoir ouvert cette issue ! Nous allons examiner votre demande et revenir vers vous dès que possible.
 
-          await github.issues.createComment({
-            issue_number: context.issue.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            body: issueComment
-          });
+          Si vous avez des informations supplémentaires à fournir, n'hésitez pas à les ajouter ici.
+          `;
+
+          if (github && github.issues && github.issues.createComment) {
+            await github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: issueComment
+            });
+          } else {
+            console.error('github.issues.createComment is not available');
+          }
