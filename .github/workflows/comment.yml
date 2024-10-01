@@ -1,34 +1,17 @@
-name: Auto-respond to new issues
+name: auto-rep issue
 
 on:
   issues:
     types: [opened]
 
 jobs:
-  respond:
+  rep:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Respond to issue
-      uses: actions/github-script@v7
-      with:
-        script: |
-          const issueComment = `
-          Merci d'avoir ouvert cette issue ! Nous allons examiner votre demande et revenir vers vous dès que possible.
-
-          Si vous avez des informations supplémentaires à fournir, n'hésitez pas à les ajouter ici.
-          `;
-
-          if (github && github.issues && github.issues.createComment) {
-            await github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: issueComment
-            });
-          } else {
-            console.error('github.issues.createComment is not available');
-          }
+      - name: repondre
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Bonjour, merci d'avoir ouvert une issue ! Nous allons l'examiner dès que possible.
