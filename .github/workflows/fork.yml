@@ -1,0 +1,14 @@
+name: fork
+
+on:
+  fork
+
+jobs:
+  jobfork:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Echo message
+        run: echo "Fork detecté"

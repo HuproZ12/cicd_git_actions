@@ -9,9 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: repondre
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
         uses: peter-evans/create-or-update-comment@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Bonjour, merci d'avoir ouvert une issue ! Nous allons l'examiner dès que possible.
+            Bonjour $ISSUE_AUTHOR, nous avons bien pris en compte votre problème du nom de : $ISSUE_TITLE
