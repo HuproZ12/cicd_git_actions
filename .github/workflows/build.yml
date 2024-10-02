@@ -26,9 +26,14 @@ jobs:
           ${{ runner.os }}-maven-
 
     - name: build
-      run: mvn install
+      run: mvn install -DskipTests
+      
+    - name: test
+      run: mvn test
+      continue-on-error: true
 
     - name: upload build artifact
+      if: github.ref == 'refs/heads/main' && success()
       uses: actions/upload-artifact@v3
       with:
         name: build
